@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import MyComponent from './MyComponent';
 
 const App = () => {
-   return <MyComponent>리액트</MyComponent>;
+   return (
+      <MyComponent name="React" favoriteNumber={3}>
+         리액트
+      </MyComponent>
+   );
 };
 
 export default App;
