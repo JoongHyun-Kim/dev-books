@@ -5,7 +5,8 @@
 ### 　 1.2 리액트 특징
 
 -  **Virtual DOM** (Document Object Model): 실제 DOM(객체로 문서구조 표현)에 접근해 조작하는 대신 추상화한 자바스크립트 객체를 구성해 사용 → 최소한의 연산으로 DOM 트리 업데이트 (바뀐 부분만 실제 DOM에 적용)
-   <br>
+  
+  <br>
 
 ## 2. JSX
 
@@ -26,6 +27,7 @@
 -  ~~class~~ → className
 -  항상 태그 닫기 (html은 \<input>,\<br> 등 닫지 않아도 되는 태그 존재 but JSX는 항상 태그 닫기)
 -  self-closed 태그에서는 // 이렇게 or /_ 이런식 _/ 으로 주석 달기 가능 (단, />는 꼭 마지막 새 줄로)
+   
    <br>
 
 ## 3. 컴포넌트
@@ -40,3 +42,21 @@
 ### 　 3.3 props
 - 컴포넌트 속성을 설정할 때 사용하는 요소
 - props는 부모 컴포넌트에서 설정
+- children: 컴포넌트 태그 사이의 내용을 보여주는 props
+- 함수형 컴포넌트에서 파라미터 부분에 비구조화 할당 문법 사용(ES6)
+- propTypes 사용해 props의 타입을 지정(지정 시 isRequired 이용해 필수사항으로 설정 가능)
+### 　 3.4 state
+- state: 컴포넌트 안에서 바뀔 수 있는 값(props의 경우, 부모 컴포넌트가 설정한 props값을 컴포넌트 자신은 바꿀 수 X)
+1) 클래스형 컴포넌트의 state
+   - state 초기값 설정 → constructor 메소드 사용 or state = { number: 0 }; 이런식으로 설정
+   - this.setState() 사용하면 state값 비동기적으로 업데이트
+2) 함수형 컴포넌트의 `useState`
+   - useState 함수 호출 시 배열 반환 → 배열의 첫번째 원소는 현재 상태, 두 번째 원소는 상태를 바꿔주는 함수(Setter함수) <br>
+     ex) const \[message, setMessage] = useState(' ');
+### 　 3.5 state 사용 시 주의사항
+- state값 변경 시 반드시 setState(클래스형 컴포넌트) 또는 useState 통헤 전달받은 Setter 함수(함수형 컴포넌트) 사용 <br>
+**→ 배열이나 객체 업데이트하고 싶을 때는 사본을 만들어 그 사본에 값을 업데이트한 후 setState 또는 Setter함수 사용해 업데이트**
+### 　 3.6 정리
+- props 사용 시 값이 반드시 고정적인 것은 X <br>
+→ 부모 컴포넌트의 state를 자식 컴포넌트의 props로 전달, 자식 컴포넌트에서 특정 이벤트 발생 시 부모 컴포넌트의 메소드 호출 <br>
+→ props 유동적으로 사용 가능
