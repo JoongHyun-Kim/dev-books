@@ -6,25 +6,19 @@ class EventPractice extends Component {
       message: '',
    };
 
-   //임의 메소드 생성
-   constructor(props) {
-      super(props);
-      this.handleChange = this.handleChange.bind(this);
-      this.handleClick = this.handleClick.bind(this);
-   }
-
-   handleChange(e) {
+   //화살표 함수 형식으로 변경
+   handleChange = (e) => {
       this.setState({
          message: e.target.value,
       });
-   }
+   };
 
-   handleClick() {
+   handleClick = () => {
       alert(this.state.message);
       this.setState({
          message: '',
       });
-   }
+   };
 
    render() {
       return (
