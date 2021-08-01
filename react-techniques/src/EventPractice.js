@@ -6,6 +6,26 @@ class EventPractice extends Component {
       message: '',
    };
 
+   //임의 메소드 생성
+   constructor(props) {
+      super(props);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleClick = this.handleClick.bind(this);
+   }
+
+   handleChange(e) {
+      this.setState({
+         message: e.target.value,
+      });
+   }
+
+   handleClick() {
+      alert(this.state.message);
+      this.setState({
+         message: '',
+      });
+   }
+
    render() {
       return (
          <div>
@@ -15,13 +35,9 @@ class EventPractice extends Component {
                name="message"
                placeholder="입력"
                value={this.state.message}
-               onChange={(e) => {
-                  this.setState({
-                     //state값 업데이트
-                     message: e.target.value,
-                  });
-               }}
+               onChange={this.handleChange}
             />
+            <button onClick={this.handleClick}>확인</button>
          </div>
       );
    }
