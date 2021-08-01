@@ -52,7 +52,7 @@
    - this.setState() 사용하면 state값 비동기적으로 업데이트
 2) 함수형 컴포넌트의 `useState`
    - useState 함수 호출 시 배열 반환 → 배열의 첫번째 원소는 현재 상태, 두 번째 원소는 상태를 바꿔주는 함수(Setter함수) <br>
-     ex) const \[message, setMessage] = useState(' ');
+     ex) const \[message, setMessage] = useState('');
 ### 　 3.5 state 사용 시 주의사항
 - state값 변경 시 반드시 setState(클래스형 컴포넌트) 또는 useState 통헤 전달받은 Setter 함수(함수형 컴포넌트) 사용 <br>
 **→ 배열이나 객체 업데이트하고 싶을 때는 사본을 만들어 그 사본에 값을 업데이트한 후 setState 또는 Setter함수 사용해 업데이트**
@@ -71,3 +71,21 @@
   - DOM 요소에만 이벤트 설정 가능/작접 만든 컴포넌트에는 설정X <br>
   ex)div, button, input, form, span에는 설정 가능
 ### 　 4.2 예제로 이벤트 핸들링 익히기
+- 이벤트 처리 시 렌더링과 동시에 함수를 만들지 않고 미리 임의 메소드를 따로 만들어 전달(가독성↑)
+- 객체 안에서 key를 \[ ]로 감싸면 안에 넣은 레퍼런스가 가리키는 실제 값이 key값으로 사용 <br>
+```
+const name = 'variantKey';
+const object = {
+  [name]: 'value',
+};
+```
+ → 결과
+```
+{
+  'variantKey': 'value'
+}
+```
+- onKeyPress 이벤트를 이용해 엔터 눌렀을 때 특정 메소드가 호출되도록 설정 가능
+### 　 4.3 함수형 컴포넌트로 구현해 보기
+- 여러 input들의 상태를 관리하기 위해 useState 쓸 때 문자열이 아닌 객체를 사용(Ch 4.3 commit 참고) <br>
+→ 8장 useReducer와 custom Hooks를 사용하면 더 쉽게 가능
