@@ -32,7 +32,7 @@ const categories = [
    },
 ];
 
-const categoriesBlock = styled.div`
+const CategoriesBlock = styled.div`
    display: flex;
    padding: 1rem;
    width: 768px;
@@ -62,11 +62,11 @@ const Category = styled.div`
 
 const Categories = () => {
    return (
-      <categoriesBlock>
+      <CategoriesBlock>
          {categories.map((c) => (
             <Category key={c.name}>{c.text}</Category>
          ))}
-      </categoriesBlock>
+      </CategoriesBlock>
    );
 };
 
