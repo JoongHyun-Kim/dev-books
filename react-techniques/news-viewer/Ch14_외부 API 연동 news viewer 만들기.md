@@ -302,12 +302,12 @@ const NewsList = () => {
 export default NewsList;
 ```
 
- → useEffect에 등록하는 함수에는 `async` 를 붙이면 안된다. useEffect 내부에서 async/await를 사용하고 싶으면 함수 내부에 async 키워드가 붙은 다른<br>
- 함수를 만들어서 사용해야 한다.
+ → useEffect에 등록하는 함수에는 `async` 를 붙이면 안된다. useEffect 내부에서 `async/await`를 사용하고 싶으면 함수 내부에 async 키워드가 붙은 다른<br>
+   함수를 만들어서 사용해야 한다.
 
-→ `loaing` 이라는 상태를 만들어 API 요청이 대기중인지 판별하는데 사용
-     loading = true: 요청이 대기 중
-     loading = false: 요청이 끝나면 false로 설정
+→ `loaing` 이라는 상태를 만들어 API 요청이 대기중인지 판별하는데 사용 <br>
+   loading = true: 요청이 대기 중 <br>
+   loading = false: 요청이 끝나면 false로 설정
 
 → map 함수 사용하기 전에 반드시 `!articles` 값이 null인지 아닌지 확인해야 한다. 아직 데이터가 없어 null일 때는 아직 map 함수가 없어 렌더링 과정에서<br>
   오류가 생기기 때문에 반드시 예외처리를 해주어야 한다.
