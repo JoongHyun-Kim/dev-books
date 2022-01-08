@@ -316,6 +316,7 @@ export default NewsList;
 
 **결과 화면**
 - API 요청이 대기 중일 때
+<img width="1000" alt="스크린샷 2022-01-06 오전 2 32 08" src="https://user-images.githubusercontent.com/80838501/148648106-779401ba-c1c1-4ac2-8af4-a3bbf260e16f.png">
 
 
 - API 요청이 끝난 후 
@@ -637,7 +638,7 @@ const NewsList = ({ **category** }) => { //props로 category 값 넘겨주기
 
 export default NewsList;
 ```
-→ category 값이 **all**이면 query값을 **공백**으로 설정하고, **all이 아니면** **“&category=카테고리”** 형태로 문자열 생성해 query 값 설정
+→ category 값이 **all**이면 query값을 **공백**으로 설정하고, **all이 아니면** **“&category=카테고리”** 형태로 문자열 생성해 query 값 설정<br>
 → category값이 바뀔 때마다 (예를 들어, 다른 카테고리를 클릭할 경우) 뉴스를 새로 불러와야 하기 때문에 useEffect의 두 번째 파라미터에 **category**를<br> 넣어주어야 한다.
 <br>
 <br>
@@ -842,7 +843,8 @@ export default App;
 ```
 → `<Route>`를 반드시 `<Routes>`로 감싸주자.
 <br>
-  
+<br>
+
 ```jsx
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -850,16 +852,17 @@ import NewsPage from './pages/NewsPage';
 
 const App = () => {
    return (
-			<Routes>
-		      <Route path="/:category?" component={NewsPage} />
-			</Routes>
+   	<Routes>
+		<Route path="/:category?" component={NewsPage} />
+	</Routes>
    );
 };
 
 export default App;
 ```
 <br>
-  
+<br>
+
 그래도 계속 빈 화면이 렌더링된다면, react-router-dom을 ver 5.2.0으로 downgrade하자..
 ```jsx
  npm i react-router-dom@5.2.0
