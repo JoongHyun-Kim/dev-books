@@ -524,7 +524,7 @@ const Category = styled.div`
             color: #3bc9db;
             border-bottom: 2px solid #3bc9db;
          }
-      `}**
+      `}
 
    & + & {
       margin-left: 1rem;
@@ -537,8 +537,8 @@ const Categories = ({ **onSelect, category** }) => {
          {categories.map((c) => (
             <Category
                key={c.name}
-               **active={category === c.name}
-               onClick={() => onSelect(c.name)}**
+               active={category === c.name}
+               onClick={() => onSelect(c.name)}
             >
                {c.text}
             </Category>
@@ -594,7 +594,7 @@ const NewsListBlock = styled.div`
    }
 `;
 
-const NewsList = ({ **category** }) => { //props로 category 값 넘겨주기
+const NewsList = ({ category }) => { //props로 category 값 넘겨주기
    const [articles, setArticles] = useState(null);
    const [loading, setLoading] = useState(false);
 
@@ -603,7 +603,7 @@ const NewsList = ({ **category** }) => { //props로 category 값 넘겨주기
       const fetchdata = async () => {
          setLoading(true);
          try {
-            **const query = category === 'all' ? '' : `&category=${category}`;**
+            const query = category === 'all' ? '' : `&category=${category}`;
             const response = await axios.get(
                `https://newsapi.org/v2/top-headlines?country=kr**${query}**&apiKey=1234a5678b`
             );
@@ -614,7 +614,7 @@ const NewsList = ({ **category** }) => { //props로 category 값 넘겨주기
          setLoading(false);
       };
       fetchdata();
-   }, [**category**]); //category값 업데이트될 때마다 뉴스 새로 불러오기
+   }, [category]); //category값 업데이트될 때마다 뉴스 새로 불러오기
 
    //대기 중일 때
    if (loading) {
@@ -700,7 +700,7 @@ import { Route } from 'react-router-dom';
 import NewsPage from './pages/NewsPage';
 
 const App = () => {
-   return **<Route path="/:category?" component={NewsPage} />;**
+   return <Route path="/:category?" component={NewsPage} />;
 };
 
 export default App;
@@ -764,7 +764,7 @@ const CategoriesBlock = styled.div`
    }
 `;
 
-const Category = styled**(NavLink)**`
+const Category = styled(NavLink)`
    font-size: 1.125rem;
    cursor: pointer;
    white-space: pre;
