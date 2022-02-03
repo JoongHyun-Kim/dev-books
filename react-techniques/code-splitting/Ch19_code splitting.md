@@ -1,4 +1,4 @@
-# Ch19 code splitting
+# Ch 19. Code Splitting
 ## 코드 스플리팅이란? 
 > webpack에서 별도의 설정을 하지 않으면  빌드 시 프로젝트에서 사용중인 모든 js 파일이 하나의 파일로 합쳐지고, 모든 CSS 파일도 하나의 파일로 합쳐진다.
 > 애플리케이션의 규모가 커지면 필요하지 않은 컴포넌트 정보까지 모두 불러오면서 파일 크기가 매우 커지게 되고, 
@@ -214,10 +214,12 @@ export default App;
 ### Loadable Components를 통한 코드 스플리팅
 - **Loadable components**는 코드 스플리팅을 편히 하도록 도와주는 서드파티 라이브러리
 - 장점: 서버 사이드 렌더링을 지원하고, 렌더링하기 전에 스플리팅 된 파일을 미리 불러올 수 있는 기능이 있다.
+- preload 외에도 타임아웃, 로딩 UI 딜레이, 서버 사이드 렌더링 호환 등의 다양한 기능을 보유하고 있다.
+<br>
 <br>
 <br>
 
-- Loadable components 라이브러리 사용방법
+**Loadable components 라이브러리 사용방법** <br>
 **App.js**
 ```jsx
 import React, { useState } from 'react';
@@ -257,7 +259,7 @@ const SplitMe = loadable(() => import('./SplitMe'), {
 <br>
 <br>
 
-- 렌더링 전에 컴포넌트를 미리 불러오는 방법 (preload)
+**렌더링 전에 컴포넌트를 미리 불러오는 방법 (preload)** <br>
 **App.js**
 ```jsx
 import React, { useState } from 'react';
@@ -295,14 +297,12 @@ export default App;
   마우스 커서 올리면 로딩 시작, 클릭 시 렌더링
 <br>
 <br>
-
-- preload 외에도 타임아웃, 로딩 UI 딜레이, 서버 사이드 렌더링 호환 등의 다양한 기능 보유
-<br>
-<br>
 <br>
 <br>
 
 ## Ch 19.3 정리
-서버 사이드 렌더링을 할 계획이 없다면, React.lazy와 Suspense로 구현하고, 서버 사이드 렌더링을 할 예정이라면 Loadable Components 라이브러리를 사용해야 한다.
+서버 사이드 렌더링을 할 계획이 없다면, React.lazy와 Suspense로 구현하고, 서버 사이드 렌더링을 할 예정이라면 Loadable Components 라이브러리를<br> 사용해야 한다. <br>
+<br>
 
+**React 공식 문서**
 <img width="903" alt="스크린샷 2022-02-03 오후 7 25 09" src="https://user-images.githubusercontent.com/80838501/152343098-9b869991-7867-42c8-a197-a15191301e52.png">
