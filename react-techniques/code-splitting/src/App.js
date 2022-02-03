@@ -1,7 +1,8 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-const SplitMe = React.lazy(() => import('./SplitMe'));
+import loadable from '@loadable/component';
+const SplitMe = loadable(() => import('./SplitMe'));
 
 function App() {
    const [visible, setVisible] = useState(false);
@@ -13,9 +14,7 @@ function App() {
          <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p onClick={onClick}>Hello React!</p>
-            <Suspense fallback={<div>loading…</div>}>
-               {visible && <SplitMe />}
-            </Suspense>
+            {visible && <SplitMe />}
          </header>
       </div>
    );
